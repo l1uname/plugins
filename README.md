@@ -3,7 +3,7 @@ This script will help you find the plugin that is causing issues on your WordPre
 
 # KEY FEATURES:
 - Creates a backup of the WordPress database, but it is also recommended to use this script on a staging environment.
-- Allows to skip any of the active plugins (e.g. in case you want to keep WooCommerce active).
+- Allows skipping any of the active plugins (e.g. in case you want to keep WooCommerce active).
 - Automatically clears the WordPress cache after each batch is deactivated and will continue to run until the problematic batch is found.
 
 # USAGE:
