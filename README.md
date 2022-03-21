@@ -1,4 +1,4 @@
-# This script will help you find the plugin that is causing issues on your WordPress site. It will divide and deactivate the active plugins in batches of half until the problematic plugin is found. This is significantly faster as opposed to disabling the plugins one-by-one (especially if there are 10+ active plugins).
+This script will help you find the plugin that is causing issues on your WordPress site. It will divide and deactivate the active plugins in batches of half until the problematic plugin is found. This is significantly faster as opposed to disabling the plugins one-by-one (especially if there are 10+ active plugins).
 
 # KEY FEATURES:
 - Creates a backup of the WordPress database, but it is also recommended to use this script on a staging environment.
