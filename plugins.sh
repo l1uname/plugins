@@ -54,10 +54,10 @@ local CHECK_LINES=$(cat ${FILE} | grep -v "^$" | wc -l)
 
 if [[ $CHECK_LINES -ge 1 ]]
 then
-for i in $(cat ${FILE})
-do
-	wp plugin activate $i --skip-plugins --skip-themes
-done
+	for i in $(cat ${FILE})
+	do
+		wp plugin activate $i --skip-plugins --skip-themes
+	done
 else
 	echo -e "${GREEN}The last batch has no remaining plugins${NC}"
 	exit 0
