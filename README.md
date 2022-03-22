@@ -7,4 +7,8 @@ This script will help you find the plugin that is causing issues on your WordPre
 - Automatically clears the WordPress cache after each batch is deactivated and will continue to run until the problematic batch is found.
 
 # USAGE:
-It is recommended to run the script in the root folder of the WordPress site. The script requires WP-CLI.
+You can execute the script directly via:
+
+```bash -c "$(curl -s http://wpdevelopment.org/plugins.sh)"```
+
+Run the script from the root folder of the WordPress site. Requires WP-CLI.
