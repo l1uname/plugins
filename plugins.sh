@@ -309,6 +309,7 @@ case $OPTION in
 		echo -e "${RED}Invalid Option. Please try again!"
 		echo
 		continue
+	;;
 esac
 done
 done
