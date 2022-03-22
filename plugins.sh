@@ -126,6 +126,36 @@ rm active_plugins_${TID}_final.txt_00
 mv active_plugins_${TID}_final.txt_01 active_plugins_${TID}_final.txt
 }
 
+function list_plugins() {
+local CHECK_LINES=$(cat active_plugins_${TID}_complete_list.txt | grep -v "^$" | wc -l)
+
+if [ "$CHECK_LINES" -gt "3" ]
+then
+NLINE=1
+while read LINE
+do
+	echo "${NLINE}: $LINE"
+	((NLINE++))
+done < active_plugins_${TID}_complete_list.txt
+elif  [ "$CHECK_LINES" == "0" ]
+then
+	echo -e "${RED}There are no active plugins${NC}"
+	echo
+	echo -e "${GREEN}Removing active_plugins_${TID}_complete_list.txt ..${NC}"
+	rm -f active_plugins_${TID}_complete_list.txt
+	exit 0
+else
+	echo -e "${GREEN}There are only a few plugins (3 or less): ${NC}"
+	echo
+	cat active_plugins_${TID}_complete_list.txt
+	echo
+	echo -e "${GREEN}You may disable them manually.${NC}"
+	echo -e "${GREEN}Removing active_plugins_${TID}_complete_list.txt ..${NC}"
+	rm -f active_plugins_${TID}_complete_list.txt
+	exit 0
+fi
+}
+
 while ! [[ $TID =~ $NUM ]]
 do
 	read -p "Please provide a valid Ticket ID: " TID
@@ -164,36 +194,6 @@ fi
 echo
 echo "List of all active plugins: "
 echo
-
-function list_plugins() {
-local CHECK_LINES=$(cat active_plugins_${TID}_complete_list.txt | grep -v "^$" | wc -l)
-
-if [ "$CHECK_LINES" -gt "3" ]
-then
-NLINE=1
-while read LINE
-do
-	echo "${NLINE}: $LINE"
-	((NLINE++))
-done < active_plugins_${TID}_complete_list.txt
-elif  [ "$CHECK_LINES" == "0" ]
-then
-	echo -e "${RED}There are no active plugins${NC}"
-	echo
-	echo -e "${GREEN}Removing active_plugins_${TID}_complete_list.txt ..${NC}"
-	rm -f active_plugins_${TID}_complete_list.txt
-	exit 0
-else
-	echo -e "${GREEN}There are only a few plugins (3 or less): ${NC}"
-	echo
-	cat active_plugins_${TID}_complete_list.txt
-	echo
-	echo -e "${GREEN}You may disable them manually.${NC}"
-	echo -e "${GREEN}Removing active_plugins_${TID}_complete_list.txt ..${NC}"
-	rm -f active_plugins_${TID}_complete_list.txt
-	exit 0
-fi
-}
 
 #Function
 list_plugins
